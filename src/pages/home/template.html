@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Endpoint
+            </th>
+            <th>
+              Edit
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="e in list" :class="{danger: e.status > 399, success: e.status >= 200 && e.status < 300}">
+            <td>
+              {{e.id}}
+            </td>
+            <td>
+              {{e.status}}
+            </td>
+            <td>
+              {{e.endpoint}}
+            </td>
+            <td>
+              <router-link class="btn btn-warning" :to="{name: 'endpoint.index', params: {id: e.id}}">
+                Edit <i class="fa fa-pencil"></i>
+              </router-link>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 ">
+      <router-link class="btn btn-warning pull-right" :to="{name: 'endpoint.index', params: {id: 'new'}}">
+        Add new Endpoint
+      </router-link>
+
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6 ">
+      <button type="button" class="btn btn-success btn-default center-block">
+				Activate fake server
+			</button>
+    </div>
+    <div class="col-md-6">
+
+      <button type="button" class="btn btn-danger center-block">
+				Deactivate fake server
+			</button>
+    </div>
+  </div>
+  <hr>
+</div>
