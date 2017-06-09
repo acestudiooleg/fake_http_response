@@ -7,7 +7,9 @@
  */
 
 export const REFRESH = 'REFRESH';
+export const SET_STATUS = 'SET_STATUS';
 
 export default {
   REFRESH,
+  SET_STATUS,
 };

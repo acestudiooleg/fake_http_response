@@ -5,6 +5,9 @@
  * The initial state of the account module.
  */
 
-export default {
+export const initState = {
   list: [],
+  status: false,
 };
+
+export default initState;

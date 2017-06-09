@@ -19,7 +19,7 @@ export const update = (id, item) => {
   const items = all();
   items.forEach((el, i) => {
     if (el.id === id) {
-      const newItem = { ...el, item };
+      const newItem = { ...el, ...item };
       items[i] = newItem;
     }
   });

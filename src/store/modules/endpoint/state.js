@@ -5,8 +5,10 @@
  * The initial state of the account module.
  */
 
-export default {
+export const initState = {
   status: 200,
   endpoint: '/',
   response: '[]',
 };
+
+export default initState;

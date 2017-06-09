@@ -21,34 +21,6 @@ Vue.config.debug = process.env.NODE_ENV !== 'production';
 
 
 /* ============
- * Axios
- * ============
- *
- * Promise based HTTP client for the browser and node.js.
- * Because Vue Resource has been retired, Axios will now been used
- * to perform AJAX-requests.
- *
- * https://github.com/mzabriskie/axios
- */
-import Axios from 'axios';
-
-Axios.defaults.baseURL = process.env.API_LOCATION;
-Axios.defaults.headers.common.Accept = 'application/json';
-// Axios.interceptors.response.use(
-//   response => response,
-//   (error) => {
-
-//   });
-
-Vue.$http = Axios;
-Object.defineProperty(Vue.prototype, '$http', {
-  get() {
-    return Axios;
-  },
-});
-
-
-/* ============
  * Vuex Router Sync
  * ============
  *
@@ -58,9 +30,6 @@ Object.defineProperty(Vue.prototype, '$http', {
  */
 import VuexRouterSync from 'vuex-router-sync';
 import store from './store';
-
-store.dispatch('auth/check');
-
 
 /* ============
  * Vue Router

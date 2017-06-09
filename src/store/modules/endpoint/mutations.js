@@ -6,13 +6,10 @@
  * account module.
  */
 
-import { UPDATE } from './mutation-types';
+import { UPDATE, RESET } from './mutation-types';
+import { initState } from './state';
 
 export default {
-  [UPDATE](state, endpoint) {
-    console.log(endpoint);
-    state.status = endpoint.status;
-    state.endpoint = endpoint.endpoint;
-    state.response = endpoint.response;
-  },
+  [UPDATE]: (state, endpoint) => endpoint,
+  [RESET]: () => initState,
 };

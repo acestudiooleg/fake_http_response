@@ -41,6 +41,13 @@ export default {
       this.$router.push({
         name: 'home.index'
       });
+    },
+    remove() {
+      this.$store.dispatch('endpoint/removeEndpoint', this.endpoint);
+      this.$store.dispatch('home/refresh');
+      this.$router.push({
+        name: 'home.index'
+      });
     }
   },
 };

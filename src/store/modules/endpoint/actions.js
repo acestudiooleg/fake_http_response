@@ -6,8 +6,8 @@
  * account module.
  */
 
-import { create, update, read } from '@/services/LSDB';
-import { UPDATE } from './mutation-types';
+import { create, update, read, remove } from '@/services/LSDB';
+import { UPDATE, RESET } from './mutation-types';
 
 
 export const updateEndpointData = ({ commit }, payload) => {
@@ -20,15 +20,25 @@ export const load = ({ commit }, id) => {
 };
 
 export const saveEndpointData = ({ commit }, payload) => {
-  if (payload.id) {
+  if (payload.id && payload.id !== 'new') {
     update(payload.id, payload);
   } else {
     create(payload);
   }
+  commit(RESET);
 };
+
+export const removeEndpoint = ({ commit }, payload) => {
+  if (payload.id) {
+    remove(payload.id);
+    commit(RESET);
+  }
+};
+
 
 export default {
   updateEndpointData,
   saveEndpointData,
   load,
+  removeEndpoint,
 };

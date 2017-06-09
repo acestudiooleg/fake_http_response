@@ -6,10 +6,10 @@
  * account module.
  */
 
-import { REFRESH } from './mutation-types';
+import { REFRESH, SET_STATUS } from './mutation-types';
 
 export default {
-  [REFRESH](state, list) {
-    state.list = list;
-  },
+  [REFRESH]: (state, list) => ({ list }),
+  [SET_STATUS]: (state, status) => ({ status }),
+
 };

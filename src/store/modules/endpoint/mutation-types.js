@@ -7,7 +7,9 @@
  */
 
 export const UPDATE = 'UPDATE';
+export const RESET = 'RESET';
 
 export default {
   UPDATE,
+  RESET,
 };
